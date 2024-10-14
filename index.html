@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator</title>
+    <style>
+        :root {
+            box-sizing: border-box;
+            --translate-amount: 15px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .container {
+            background-color: #282931;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .elevator-button {
+            width: 140px;
+            height: 140px;
+            border-radius: 3px;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            color: #adafbf;
+            font-family: Helvetica, sans-serif;
+            font-weight: 300;
+        }
+
+        .chevron {
+            height: 60px;
+            width: 60px;
+            border-left: 3px solid white;
+            border-top: 3px solid white;
+            /* border-bottom: 3px solid grey;
+            border-right: 3px solid grey; */
+        }
+
+        .chevron.up {
+            transform: translateY(var(--translate-amount)) rotate(45deg)
+        }
+
+        .chevron.down {
+            transform-origin: center;
+            transform: translateY(calc(0px - var(--translate-amount))) rotate(225deg)
+        }
+
+
+        .elevator-button {
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0);
+            opacity: 0.6;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+
+        .elevator-button:hover {
+            opacity: 0.8
+        }
+
+        .elevator-button:active {
+            opacity: 1;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked+label .elevator-button {
+            transition: opacity 0.15s, box-shadow 0.3s;
+            opacity: 1 !important;
+            box-shadow: 0 0 8px white;
+            cursor: progress;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="buttons">
+            <div>
+
+                <input type="radio" id="btn1" class="elevator-btn" name="elevator">
+                <label for="btn1">
+                    <div class="elevator-button">
+
+                        <div class="chevron up"></div>
+                    </div>
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="btn2" class="elevator-btn" name="elevator">
+                <label for="btn2">
+                    <div class="elevator-button">
+                        <div class="chevron down">
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <h3>
+            Call the KALLE elevator.
+        </h3>
+    </div>
+
+</body>
+
+</html>
